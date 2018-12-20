@@ -1,20 +1,15 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Tell Me About Your Meal</h1>
 
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proteins<span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <% @proteins.each do |protein| %>
-      <li><%= link_to protein.name %></li>
-    <% end %>
-  </ul>
-</li>
+<%= form_with url: submit_path, local: true do |form| %>
 
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sauces<span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <% @sauces.each do |sauce| %>
-      <li><%= link_to sauce.name %></li>
-    <% end %>
-  </ul>
-</li>
+<div class="form-group">
+  <%= form.select :proteins_id, @proteins.collect { |p| [ p.name, p.id ]}, {include_blank: "Please select a protein" } %>
+</div>
+
+<div class="form-group">
+  <%= form.select :sauces_id, @sauces.collect { |s| [ s.name, s.id ]}, {include_blank: "Please select a sauce" } %>
+</div>
+
+<button type="button" class="btn btn-default">Submit</button>
+
+<% end %>

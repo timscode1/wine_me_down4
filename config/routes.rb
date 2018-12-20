@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :wines
   resources :sauces
   resources :proteins
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/about'
   root 'home#index'
+  post 'submit' => 'hub#submit'
 end
