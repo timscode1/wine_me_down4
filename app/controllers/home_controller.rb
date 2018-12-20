@@ -10,8 +10,8 @@ class HomeController < ApplicationController
 
   def submit
 	@wines = Wine.all
-	@protein = params[:protein]
-	@sauce = params[:sauce]
+	@protein = Protein.find(params[:protein]).name	
+	@sauce = Sauce.find(params[:sauce]).name
 	redirect_to root_path
 	end 
 
