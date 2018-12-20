@@ -1,6 +1,6 @@
 <h1>Tell Me About Your Meal</h1>
 
-<%= form_with url: submit_path, local: true do |form| %>
+<%= form_with url: index_path, local: true do |form| %>
 
 <div class="form-group">
   <%= form.select :protein, @proteins.collect { |p| [ p.name, p.id ]}, {include_blank: "Please select a protein" } %>
@@ -14,6 +14,7 @@
 <% end %>
 
 <% if @protein != nil && @sauce !=nil %>
+
 	<% if @protein == "Chicken" && @sauce == "Bechamel" %>
 		<%= @wines[0].varietal %>
 	<% end %>
