@@ -3,13 +3,19 @@
 <%= form_with url: submit_path, local: true do |form| %>
 
 <div class="form-group">
-  <%= form.select :proteins_id, @proteins.collect { |p| [ p.name, p.id ]}, {include_blank: "Please select a protein" } %>
+  <%= form.select :protein, @proteins.collect { |p| [ p.name, p.id ]}, {include_blank: "Please select a protein" } %>
 </div>
 
 <div class="form-group">
-  <%= form.select :sauces_id, @sauces.collect { |s| [ s.name, s.id ]}, {include_blank: "Please select a sauce" } %>
+  <%= form.select :sauce, @sauces.collect { |s| [ s.name, s.id ]}, {include_blank: "Please select a sauce" } %>
 </div>
 
-<button type="button" class="btn btn-default">Submit</button>
-
+  <%= form.submit "What's my wine?" %>
 <% end %>
+
+<% if @protein != nil && @sauce !=nil %>
+	<% if @protein = "Chicken" && @sauce = "Beschamel" %>
+		<%= @wines.name(1) %>
+	<% end %>
+<% end %>
+
