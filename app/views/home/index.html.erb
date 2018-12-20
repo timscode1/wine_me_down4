@@ -14,8 +14,8 @@
 <% end %>
 
 <% if @protein != nil && @sauce !=nil %>
-	<% if @protein = "Chicken" && @sauce = "Beschamel" %>
-		<%= @wines.name(1) %>
+	<% if @protein == "Chicken" && @sauce == "Bechamel" %>
+		<%= @wines[0].varietal %>
 	<% end %>
 <% end %>
 

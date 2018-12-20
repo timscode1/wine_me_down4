@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   end
 
   def submit
+	@wines = Wine.all
 	@protein = params[:protein]
 	@sauce = params[:sauce]
 	redirect_to root_path
