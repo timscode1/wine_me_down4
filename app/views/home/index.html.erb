@@ -4,7 +4,9 @@
 </h1>
   </div>
 </div>
+
 <div class="panel-heading">
+<div class="panel">
 <h2 class="display2">Let's Pair Your Meal With Some Wine</h2>
 <div class="panel">
 <%= form_with url: index_path, local: true do |form| %>
@@ -19,12 +21,31 @@
 
   <%= form.submit "What's my wine?" %>
 <% end %>
+</div>
+</div>
 
+<div class="panel" style="border-style: solid; border-color: #800020">
 <% if @protein != nil && @sauce !=nil %>
-
-	<% if @protein == "Chicken" && @sauce == "Bechamel" %>
-		<%= @wines[0].varietal %>
+	<% if @protein == "Chicken" && @sauce == "Tomate" || @protein == "Chicken" && @sauce == "Espagnole" || @protein == "Beef" && @sauce =="Espagnole" || @protein == "Duck" && @sauce == "Espagnole" || @protein == "Duck" && @sauce == "Bechamel" %>
+		<div class="container">
+		<h2><%= @wines[0].varietal %></h2> <br/>
+		<%= @wines[0].about %><br/>
+		<%= @wines[0].image %>
+		</div>
+		<% elsif @protein == "Chicken" && @sauce == "Bechamel" || @protein == "Chicken" && @sauce == "Veloute" ||  @protein == "Beef" && @sauce == "Bechamel" ||  @protein == "Duck" && @sauce == "Veloute" ||  @protein == "Veggie" && @sauce == "Veloute" %>
+		<div class="container">
+		<h2><%= @wines[1].varietal %></h2> <br/>
+		<%= @wines[1].about %><br/>
+		<%= @wines[1].image %>
+		</div>
+		<% elsif @protein == "Chicken" && @sauce == "Hollandaise" || @protein == "Beef" && @sauce == "Hollandaise" || @protein == "Duck" && @sauce == "Hollandaise" || @protein == "Veggie" && @sauce == "Hollandaise" || @protein == "Veggie" && @sauce == "Bechamel" %>
+		<div class="container">
+		<h2><%= @wines[2].varietal %></h2> <br/>
+		<%= @wines[2].about %><br/>
+		<%= @wines[2].image %>
+		</div>
 	<% end %>
 <% end %>
+</div>
 </div>
 </div>
