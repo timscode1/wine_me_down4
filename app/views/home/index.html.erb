@@ -1,7 +1,14 @@
-<h1>Tell Me About Your Meal</h1>
-
+ <div class="jumbotron" style="text-align: left; border-style: solid; border-color: #800020">
+  <div style="margin-left: 30px">
+  <h1 style="color:#800020">Wine Me Down <i class="fas fa-wine-glass-alt"></i>
+</h1>
+  </div>
+</div>
+<div class="panel-heading">
+<h2 class="display2">Let's Pair Your Meal With Some Wine</h2>
+<div class="panel">
 <%= form_with url: index_path, local: true do |form| %>
-
+<h3>It is important to start with your protein. Choose from the options below.</h3>
 <div class="form-group">
   <%= form.select :protein, @proteins.collect { |p| [ p.name, p.id ]}, {include_blank: "Please select a protein" } %>
 </div>
@@ -19,4 +26,5 @@
 		<%= @wines[0].varietal %>
 	<% end %>
 <% end %>
-
+</div>
+</div>
